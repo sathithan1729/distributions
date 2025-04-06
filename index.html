@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Distribution Calculator with Graphs</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Distribution Calculators</h1>
+
+  <div class="tab-buttons">
+    <button onclick="showTab('binomial')" class="active">Binomial</button>
+    <button onclick="showTab('poisson')">Poisson</button>
+    <button onclick="showTab('normal')">Normal</button>
+    <button onclick="showTab('exponential')">Exponential</button>
+  </div>
+
+  <div id="binomial" class="tab active">
+    <h2>Binomial</h2>
+    <label>n: <input type="number" id="n" value="10"></label>
+    <label>p: <input type="number" step="0.01" id="p" value="0.5"></label>
+    <button onclick="computeBinomial()">Compute</button>
+  </div>
+
+  <div id="poisson" class="tab">
+    <h2>Poisson</h2>
+    <label>λ: <input type="number" step="0.1" id="poisson_lambda" value="4"></label>
+    <button onclick="computePoisson()">Compute</button>
+  </div>
+
+  <div id="normal" class="tab">
+    <h2>Normal</h2>
+    <label>μ: <input type="number" step="0.1" id="normal_mean" value="0"></label>
+    <label>σ: <input type="number" step="0.1" id="normal_std" value="1"></label>
+    <button onclick="computeNormal()">Compute</button>
+  </div>
+
+  <div id="exponential" class="tab">
+    <h2>Exponential</h2>
+    <label>λ: <input type="number" step="0.1" id="exp_lambda" value="1"></label>
+    <button onclick="computeExponential()">Compute</button>
+  </div>
+
+  <button onclick="exportPDF()">Export Chart as PDF</button>
+  <canvas id="distributionChart" width="600" height="300"></canvas>
+</body>
+</html>
